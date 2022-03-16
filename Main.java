@@ -27,7 +27,8 @@ public class Main {
                 .collect(Collectors.toList());
 
         List<Person> listWorkableWithHigherEducation = persons.stream()
-                .filter(person -> person.getAge() >= 18 && person.getAge() <= (person.getSex() != Sex.MAN ? 60 : 65))
+                .filter(person -> person.getEducation() == Education.HIGHER
+                        && person.getAge() >= 18 && person.getAge() <= (person.getSex() != Sex.MAN ? 60 : 65))
                 .sorted(Comparator.comparing(Person::getFamily))
                 .collect(Collectors.toList());
     }
